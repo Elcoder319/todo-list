@@ -1,0 +1,269 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;0,800;1,300;1,400;1,700&display=swap');
+
+* {
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+:root {
+    --main-transition: 0.4s;
+}
+
+body {
+    background-color: #fff;
+    color: #343a40;
+    overflow-x: hidden;
+}
+
+body.light {
+    color: #343a40;
+}
+
+body.dark {
+    background-color: #343a40;
+    color: #fff;
+}
+
+body.light .container .todo-container .todoList .todoBox {
+    background-color: #f6f6f6;
+}
+
+body.dark .container .todo-container .todoList .todoBox {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+body.dark .container .todo-container .todoList .todoBox .todoDate {
+    color: #fff;
+}
+
+body.light .change-color {
+    background-color: #f6f6f6;
+}
+
+body.dark .change-color {
+    background-color: #543322;
+}
+
+.alert {
+    background: #fff;
+    box-shadow: 40px 4px 5px 1px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 10px 30px;
+    margin: 28px auto;
+    position: relative;
+    transition: 1s;
+    z-index: 999;
+    color: #343a40;
+}
+
+.alert i {
+    font-size: 20px;
+    margin-right: 5px;
+    color: #00BCD4;
+}
+
+.change-color {
+    position: relative;
+    right: -95%;
+    background-color: #f3f3f3;
+    margin-top: 28px;
+    padding: 10px;
+    cursor: pointer !important;
+    transition: var(--main-transition);
+    width: fit-content;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.change-color i {
+    font-size: 23px;
+    text-align: center;
+}
+
+.alert::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: #00BCD4;
+    animation: toRight 1.5s forwards linear;
+}
+
+.alert div {
+    line-height: 51px;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+.heading {
+    text-align: center;
+    color: #795548;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.container .todo-container {
+    width: 100%;
+}
+
+.container .todo-container .todoInput .inp,
+.container .todo-container .todoInput .addTask {
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+}
+
+.container .todo-container .todoInput .inp {
+    border-radius: 0 0 0 10px;
+    border: solid 1px #795548;
+    width: 60%;
+}
+
+.container .todo-container .todoInput .addTask {
+    background-color: #f90;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 0 10px 0;
+}
+
+.container .todo-container .todoInput .addTask:active {
+    background-color: rgb(145, 91, 12);
+}
+
+.container .todo-container .todoList {
+    margin-top: 30px;
+}
+
+.container .todo-container .todoList .todoBox {
+    background-color: #f6f6f6;
+    padding: 10px 13px;
+    width: 100%;
+    margin-bottom: 7px;
+    transition: var(--main-transition);
+    word-break: break-all;
+}
+
+.container .todo-container .todoList .todoBox.trash {
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
+
+.container .todo-container .todoList .todoBox .containerText {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .todo-container .todoList .todoBox .containerText .todoText {
+    color: #343a40;
+    flex-basis: 90%;
+}
+
+.container .todo-container .todoList .todoBox .containerText .delete i,
+.container .todo-container .todoList .todoBox .containerText .edit i {
+    font-size: 23px;
+}
+
+.container .todo-container .todoList .todoBox .containerText .delete,
+.container .todo-container .todoList .todoBox .containerText .edit {
+    cursor: pointer;
+    background-color: #fff;
+    padding: 10px 15px;
+    transition: var(--main-transition);
+    margin-left: 9px;
+    z-index: 1;
+    position: relative;
+}
+
+.container .todo-container .todoList .todoBox .containerText .delete:hover {
+    background-color: #74111b !important;
+    border-radius: 3px;
+}
+
+.container .todo-container .todoList .todoBox .containerText .delete:hover i,
+.container .todo-container .todoList .todoBox .containerText .edit:hover i {
+    color: #fff;
+    z-index: -1;
+    position: relative;
+}
+
+.container .todo-container .todoList .todoBox .containerText .edit:hover {
+    background-color: #125c66 !important;
+    border-radius: 3px;
+}
+
+body.dark .container .todo-container .todoList .todoBox .containerText .delete,
+body.dark .container .todo-container .todoList .todoBox .containerText .edit {
+    background-color: #343a40;
+}
+
+.container .todo-container .todoList .todoBox .containerText .delete {
+    color: #dc3545;
+}
+
+.container .todo-container .todoList .todoBox .containerText .edit i {
+    color: #00BCD4;
+}
+
+.container .todo-container .todoList .todoBox .todoDate {
+    font-size: 15px;
+    color: #607D8B;
+}
+
+
+@keyframes toRight {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
